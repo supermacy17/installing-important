@@ -19,6 +19,11 @@ export http_proxy='http://'$proxy_server
 export https_proxy='https://'$proxy_server 
 export ftp_proxy='ftp://'$proxy_server
 
+
+
+
+
+
 dpkg --add-architecture i386
 
 
@@ -36,30 +41,50 @@ chmod u+x ubproxy
 #adding repositories
 #for skype
 add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+echo "adding repo of java"
+add-apt-repository ppa:webupd8team/java
+
 
 echo "updating the system and then it will install the package" 
-#apt-get -y update
+apt-get -y --force-yes update
 
 
 
 #installing all the software in the system
 echo "installing sensors"
-apt-get -y install lm-sensors>/dev/null
+apt-get -y --force-yes install lm-sensors>/dev/null
 echo "installing skype"
 
-apt-get -y install skype >/dev/null
+apt-get -y --force-yes install skype >/dev/null
 echo "installing vlc"
-apt-get -y install vlc>/dev/null
+apt-get -y --force-yes install vlc>/dev/null
 
 echo "installing curl"
-apt-get -y install curl>/dev/null
+apt-get -y install --force-yes curl>/dev/null
 
 echo "installing git"
-apt-get -y install git>/dev/null
+apt-get -y install--force-yes  git>/dev/null
 
 echo "installing vim"
 
-apt-get -y install vim>/dev/null
+apt-get -y --force-yes install vim>/dev/null
 
+echo "installing default jre "
+ 
+apt-get -y --force-yes install default-jre>/dev/null
+
+echo "installing default jdk"
+apt-get -y --force-yes install default-jdk>/dev/null
+
+echo "installing open jre"
+apt-get -y --force-yes install openjdk-7-jre>/dev/null 
+
+echo "installing open jdk"
+apt-get -y --force-yes install openjdk-7-jdk>/dev/null
+
+echo "installing oracle java installer"
+apt-get -y --force-yes install python-software-properties>/dev/null
+
+apt-get -y --force-yes install oracle-java7-installer>/dev/null
 
 
